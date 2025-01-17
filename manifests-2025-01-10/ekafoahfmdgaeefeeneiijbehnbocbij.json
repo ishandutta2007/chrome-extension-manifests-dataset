@@ -1,0 +1,57 @@
+---
+name: Dopni - Automatic Cashback Service
+version: 0.0.2.010
+category_slug: lifestyle/shopping
+featured: false
+rating: 5
+rating_count: 1
+user_count: 19
+size: 431KiB
+languages:
+  - English
+  - русский
+release_date: '2021-05-19T12:21:48.000Z'
+creation_date: '2021-05-19T12:21:48.000Z'
+description: Up to 60% refunds for purchases online
+publisher_hash: 783dc5f9600d9ae0cadd5162d8e273dfd71bb8cf9bd37a8f2a983e942ecd4a99
+publisher_account: dopni.com
+privacy_policy: https://dopni.com/privacy
+---
+
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDesc__",
+  "default_locale": "en",
+  "version": "0.0.2.010",
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "page_action": {
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "declarativeContent",
+    "storage",
+    "tabs",
+    "activeTab",
+    "cookies",
+    "*://*/*"
+  ],
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  }
+}
